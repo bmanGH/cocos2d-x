@@ -694,12 +694,12 @@ FontFNT::FontFNT(BMFontConfiguration *theContfig, const Point& imageOffset /* = 
 :_configuration(theContfig)
 ,_imageOffset(CC_POINT_PIXELS_TO_POINTS(imageOffset))
 {
-
+    _configuration->retain();
 }
 
 FontFNT::~FontFNT()
 {
-
+    _configuration->release();
 }
 
 void FontFNT::purgeCachedData()
