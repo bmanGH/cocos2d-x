@@ -120,9 +120,12 @@ void Data::fastSet(unsigned char* bytes, const ssize_t size)
 
 void Data::clear()
 {
-    free(_bytes);
-    _bytes = nullptr;
-    _size = 0;
+    if (_bytes != nullptr)
+    {
+        free(_bytes);
+        _bytes = nullptr;
+        _size = 0;
+    }
 }
 
 NS_CC_END
